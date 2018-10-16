@@ -54,8 +54,7 @@ namespace X509Generator
 
             Pkcs12Store store = new Pkcs12StoreBuilder().Build();
             store.SetKeyEntry($"{subject}_key", new AsymmetricKeyEntry(subjectKeyPair.Private), new[] { new X509CertificateEntry(bouncyCert) });
-            //string exportpw = Guid.NewGuid().ToString("x");
-            string exportpw = "";
+            string exportpw = Guid.NewGuid().ToString();
 
             using (var ms = new System.IO.MemoryStream())
             {
